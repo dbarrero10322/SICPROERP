@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--vista formulario-->
+    <record id="view_tree_dbr_module_historial" model="ir.ui.view">
+        <field name="name">dbr_module_historial.view.tree</field>
+        <field name="model">dbr.module.historial</field>
+        <field name="arch" type="xml">
+            <tree create="0" edit="0" default_order="create_date desc" decoration-danger="type=='uninstall'">
+                <field name="create_date" string="Fecha"/>
+                <field name="module_name"/>
+                <field name="type"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--vista arbol-->
+    <record id="action_view_dbr_module_historial" model="ir.actions.act_window">
+        <field name="name">Historial</field>
+        <field name="res_model">dbr.module.historial</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Sin historial de actividades
+            </p>
+        </field>
+    </record>
+
+    <!--Menu-->
+    <menuitem name="Historial" id="menu_view_dbr_module_historial" parent="base.menu_management" action="action_view_dbr_module_historial"
+              sequence="200" groups="base.group_no_one"/>
+
+
+</odoo>

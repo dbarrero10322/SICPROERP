@@ -1,0 +1,51 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"nomenclador_estado_acuerdo_servicios_full","Estados Acuerdos de Servicios","model_sicpro_nomenclador_as","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_claves_horas_labor_full","Claves Horas Labor","model_sicpro_nomenclador_claves_hl","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_trimestre_full","Estado de Trimestres","model_sicpro_trimestre","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_documentacion_tecnica_full","Documentación Técnica","model_sicpro_nomenclador_documentacion_tecnica","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_meses_full","Estado de Meses","model_sicpro_nomenclador_meses","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_estado_solicitudes_full","Estado de Solicitudes","model_sicpro_nomenclador_estados_solicitudes","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_estado_ordenes_full","Estado de Ordenes","model_sicpro_nomenclador_estados_ordenes","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_especialidades_full","Especialidades","model_sicpro_nomenclador_especialidad","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_territorios_full","Territorios","model_sicpro_nomenclador_territorios","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_provincia_full","Provincias","model_sicpro_nomenclador_provincia","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_municipios_full","Municipios","model_sicpro_nomenclador_municipio","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_problemas_ejecucion_full","Problemas de Ejecución","model_sicpro_nomenclador_problemas_ejecucion","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_cuentas_contables_full","Cuentas Contables","model_sicpro_nomenclador_cuentas_contables","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_tipo_ordenes_full","Tipo de Orden","model_sicpro_nomenclador_tipos_ordenes","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_tipo_pasajes_full","Tipo de Pasaje","model_sicpro_nomenclador_tipos_pasajes","grupo_sicpro_nomencladores_full",1,1,1,1
+"nomenclador_tipocombustible_full","Tipo  de Combustible","model_sicpro_nomenclador_combustible","grupo_sicpro_nomencladores_full",1,1,1,1
+
+"nomenclador_estado_acuerdo_servicios_crear","Estados Acuerdos de Servicios","model_sicpro_nomenclador_as","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_claves_horas_labor_crear","Claves Horas Labor","model_sicpro_nomenclador_claves_hl","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_trimestre_crear","Estado de Trimestres","model_sicpro_trimestre","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_documentacion_tecnica_crear","Documentación Técnica","model_sicpro_nomenclador_documentacion_tecnica","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_meses_crear","Estado de Meses","model_sicpro_nomenclador_meses","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_estado_solicitudes_crear","Estado de Solicitudes","model_sicpro_nomenclador_estados_solicitudes","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_estado_ordenes_crear","Estado de Ordenes","model_sicpro_nomenclador_estados_ordenes","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_especialidades_crear","Especialidades","model_sicpro_nomenclador_especialidad","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_territorios_crear","Territorios","model_sicpro_nomenclador_territorios","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_provincia_crear","Provincias","model_sicpro_nomenclador_provincia","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_municipios_crear","Municipios","model_sicpro_nomenclador_municipio","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_problemas_ejecucion_crear","Problemas de Ejecución","model_sicpro_nomenclador_problemas_ejecucion","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_cuentas_contables_crear","Cuentas Contables","model_sicpro_nomenclador_cuentas_contables","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_tipo_ordenes_crear","Tipo de Orden","model_sicpro_nomenclador_tipos_ordenes","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_tipo_pasajes_crear","Tipo de Pasaje","model_sicpro_nomenclador_tipos_pasajes","grupo_sicpro_nomencladores_crear",1,0,1,0
+"nomenclador_tipocombustible_crear","Tipo  de Combustible","model_sicpro_nomenclador_combustible","grupo_sicpro_nomencladores_crear",1,0,1,0
+
+"nomenclador_estado_acuerdo_servicios_ver","Estados Acuerdos de Servicios","model_sicpro_nomenclador_as","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_claves_horas_labor_ver","Claves Horas Labor","model_sicpro_nomenclador_claves_hl","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_trimestre_ver","Estado de Trimestres","model_sicpro_trimestre","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_documentacion_tecnica_ver","Documentación Técnica","model_sicpro_nomenclador_documentacion_tecnica","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_meses_ver","Estado de Meses","model_sicpro_nomenclador_meses","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_estado_solicitudes_ver","Estado de Solicitudes","model_sicpro_nomenclador_estados_solicitudes","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_estado_ordenes_ver","Estado de Ordenes","model_sicpro_nomenclador_estados_ordenes","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_especialidades_ver","Especialidades","model_sicpro_nomenclador_especialidad","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_territorios_ver","Territorios","model_sicpro_nomenclador_territorios","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_provincia_ver","Provincias","model_sicpro_nomenclador_provincia","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_municipios_ver","Municipios","model_sicpro_nomenclador_municipio","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_problemas_ejecucion_ver","Problemas de Ejecución","model_sicpro_nomenclador_problemas_ejecucion","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_cuentas_contables_ver","Cuentas Contables","model_sicpro_nomenclador_cuentas_contables","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_tipo_ordenes_ver","Tipo de Orden","model_sicpro_nomenclador_tipos_ordenes","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_tipo_pasajes_ver","Tipo de Pasaje","model_sicpro_nomenclador_tipos_pasajes","grupo_sicpro_nomencladores_ver",1,0,0,0
+"nomenclador_tipocombustible_ver","Tipo  de Combustible","model_sicpro_nomenclador_combustible","grupo_sicpro_nomencladores_ver",1,0,0,0

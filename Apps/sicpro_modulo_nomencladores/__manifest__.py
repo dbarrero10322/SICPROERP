@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'SICPRO - Nomencladores',
+    'summary': 'Nomencladores del sistema',
+    'version': '1.0',
+    'category': 'Herramientas',
+    'summary': """Este módulo agrega todas las bases de nomencladores que 
+    seran utilizados""",
+    'author': 'Daniel Barrero Reyes',
+    'website': 'https://www.facebook.com/daniel.barrero.1253',
+    'license': 'AGPL-3',
+    'sequence': 2,
+    'depends': ['base'],
+
+    'data': [
+        'security/nomencladores_security.xml',
+        'security/ir.model.access.csv',
+        'views/estado_acuerdo_servicios.xml',
+        'views/claves_horas_labor.xml',
+        'views/trimestres.xml',
+        'views/estado_solicitudes.xml',
+        'views/documentacion_tecnica.xml',
+        'views/meses.xml',
+        'views/especialidades.xml',
+        'views/estado_ordenes.xml',
+        'views/territorios.xml',
+        'views/provincia.xml',
+        'views/combustible.xml',
+        'views/cuentas_contables.xml',
+        'views/municipio.xml',
+        'views/problemas_ejecucion.xml',
+        'views/tipos_ordenes.xml',
+        'views/tipos_pasajes.xml',
+        #'views/mail_activity_views.xml',
+
+    ],
+    'qweb': [],
+    'installable': True,
+    'application': True,
+    'images': [],
+}

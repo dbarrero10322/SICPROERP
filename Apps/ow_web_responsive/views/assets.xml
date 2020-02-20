@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<odoo>
+    <template id="assets_backend" name="Open Mobile Assets" inherit_id="web.assets_backend">
+        <xpath expr=".">
+            <link rel="stylesheet"
+                  href="/ow_web_responsive/static/src/css/web_responsive.scss"
+                  />
+            <script type="application/javascript"
+                    src="/ow_web_responsive/static/src/js/web_responsive.js"
+                    />
+        </xpath>
+    </template>
+</odoo>

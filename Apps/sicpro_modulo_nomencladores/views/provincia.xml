@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+     <!--vista formulario-->
+    <record id="provincias_form_view" model="ir.ui.view">
+        <field name="name">provincias.form.view</field>
+        <field name="model">sicpro.nomenclador.provincia</field>
+        <field name="arch" type="xml">
+            <form string="Provincias">
+                <sheet>
+                    <group>
+                        <field name="name" string="Provincia"/>
+                        <field name="abreviatura" string="Abreviatura"/>
+                        <field name="territorio" string="Territorio"/>
+                        <field name="active" string="Activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="Provincia_tree_view" model="ir.ui.view">
+        <field name="name">Provincia.tree.view</field>
+        <field name="model">sicpro.nomenclador.provincia</field>
+        <field name="arch" type="xml">
+            <tree string="Provincias">
+                <field name="name" string="Provincia"/>
+                   <field name="abreviatura" string="Abreviatura"/>
+                   <field name="territorio" string="Territorio"/>
+                   <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="Provincia_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Provincias</field>
+       <field name="model">sicpro.nomenclador.provincia</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Provincia">
+            <field name="name" string="Provincia"/>
+            <filter string="Activo" name="active" domain="[('active', '=',True)]"/>
+            <filter string="No Activo" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_Provincia" model="ir.actions.act_window">
+        <field name="name">Provincias</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.provincia</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('active', '=',False),('active', '=',True)]</field>
+    </record>
+
+
+    <!--Menus principal Nomencladores-->
+    <!--<menuitem id="menu__nomencladores_root" name="Nomencladores" parent="base.menu_administration" sequence="10" groups="grupo_sicpro_nomencladores"/>-->
+    <!-- Sub menu Acuerdo de servicios -->
+    <menuitem id="menu_Provincia" name="Provincias" parent="menu__nomencladores_root"
+              action="action_Provincia" sequence="3" />
+
+
+</odoo>

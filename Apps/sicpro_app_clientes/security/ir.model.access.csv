@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"app_clientes_general","Vista general de clientes","model_sicpro_app_clientes","grupo_app_clientes",1,0,0,0
+"app_clientes_crear_modificar","Crear/Modificar Clientes","model_sicpro_app_clientes","grupo_clientes_crear_modificar",1,1,1,0
+"app_clientes_eliminar","Eliminar Clientes","model_sicpro_app_clientes","grupo_clientes_eliminar",1,0,0,1
+"app_clientes_ver_etiquetas","Ver Etiquetas","model_sicpro_app_clientes_etiquetas","grupo_app_clientes",1,0,0,0
+"app_clientes_configurar_nomenclador","Configurar Clientes Nomenclador","model_sicpro_app_clientes","grupo_clientes_configuracion",1,0,0,0
+"app_clientes_etiquetas_full","Etiquetas Clientes","model_sicpro_app_clientes_etiquetas","grupo_clientes_configuracion",1,1,1,0

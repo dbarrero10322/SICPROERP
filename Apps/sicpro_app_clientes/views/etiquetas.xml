@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+
+    <record id="etiquetas_clientes_view_tree" model="ir.ui.view">
+        <field name="name">etiquetas.clientes.view.tree</field>
+        <field name="model">sicpro.app.clientes.etiquetas</field>
+        <field name="arch" type="xml">
+            <tree string="Etiquetas de Clientes">
+                <field name="name" string="Etiqueta"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="etiquetas_clientes_view_form" model="ir.ui.view">
+        <field name="name">etiquetas.clientes.view.form</field>
+        <field name="model">sicpro.app.clientes.etiquetas</field>
+        <field name="arch" type="xml">
+            <form string="name">
+                <sheet>
+                    <group>
+                        <field name="name" string="Etiqueta"/>
+                    </group>
+                    <group>
+                        <field name="active" string="Activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="etiquetas_clientes_view_filter" model="ir.ui.view">
+       <field name="name">etiquetas.clientes.view.filter</field>
+       <field name="model">sicpro.app.clientes.etiquetas</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Etiqueta">
+                <field name="name" string="Etiqueta"/>
+                 <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+
+    <record id="etiquetas_clientes_action" model="ir.actions.act_window">
+        <field name="name">Etiquetas</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.clientes.etiquetas</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Crea las etiquetas en tu libreta de direcciones
+          </p><p>
+            Aquí puede crear las etiquetas que serán asignadas a los clientes de los procesos.
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_etiquetas_clientes" name="Etiquetas" parent="menu_clientes_configuracion"
+              action="etiquetas_clientes_action" sequence="2" groups="grupo_clientes_configuracion" />
+
+
+</odoo>

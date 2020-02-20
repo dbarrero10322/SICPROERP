@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="clientes_view_tree" model="ir.ui.view">
+        <field name="name">clientes.view.tree</field>
+        <field name="model">sicpro.app.clientes</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" string="Nombre"/>
+                <field name="cargo" string="Cargo"/>
+                <field name="telefono_movil" string="Móvil"/>
+                <field name="correo" string="Correo electrónico"/>
+                <field name="territorio" string="Territorio"/>
+                <field name="provincia" string="Provincia"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="clientes_view_form" model="ir.ui.view">
+        <field name="name">clientes.view.form</field>
+        <field name="model">sicpro.app.clientes</field>
+        <field name="arch" type="xml">
+            <form string="name">
+                <sheet>
+                    <div class="oe_button_box" name="button_box"/>
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+
+                    <div class="oe_title">
+                        <field name="es_entidad" invisible="1"/>
+                        <field name="active" invisible="1"/>
+                        <field name="tipo_registro" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Nombre" />
+                        </h1>
+                        <div class="o_row">
+                            <field name="entidad" placeholder="Entidad" domain="[('es_entidad', '=', True)]" context="{'default_es_entidad': True, 'show_vat': True}" attrs="{'invisible': ['|', ('es_entidad','=', True)]}" />
+                        </div>
+                    </div>
+
+
+                  <group name="group_top">
+                    <group name="group_left">
+                          <field name="territorio" string="Territorio" placeholder="Territorio" options="{'no_open': True}"/>
+                          <field name="provincia" string="Provincia" placeholder="Provincia" options="{'no_open': True}"/>
+                    </group>
+
+                    <group name="group_right">
+                            <field name="cargo" string="Cargo Laboral" placeholder="e.g. Director Territorial" attrs="{'invisible': ['|', ('es_entidad','=', True)]}"/>
+                            <field name="telefono_fijo" string="Teléfono" widget="phone"/>
+                            <field name="telefono_movil" string="Móvil" widget="phone"/>
+                            <field name="correo" string="Correo electrónico" widget="email" />
+                            <field name="pagina_web" string="Sitio Web" widget="url" placeholder="e.g. https://www.etecsa.cu"/>
+                            <field name="etiquetas" string="Etiquetas" widget="many2many_tags" options="{'no_create_edit': True}" placeholder="Etiquetas"/>
+                    </group>
+
+                  </group>
+
+                     <notebook colspan="4">
+                        <page string="Entidades &amp; Contactos" autofocus="autofocus">
+                            <field name="hijos_ids" mode="kanban" context="{'default_id': id, 'default_name': name, 'default_cargo': cargo, 'default_telefono_movil': telefono_movil, 'default_correo': correo, 'default_territorio': territorio, 'default_provincia': provincia, 'default_es_entidad': es_entidad }">
+                                <kanban>
+                <field name="id"/>
+                <field name="name" string="Nombre"/>
+                <field name="cargo" string="Cargo"/>
+                <field name="telefono_movil" string="Móvil"/>
+                <field name="correo" string="Correo electrónico"/>
+                <field name="territorio" string="Territorio"/>
+                <field name="provincia" string="Provincia"/>
+                <field name="active" invisible="1"/>
+                <field name="entidad" invisible="1"/>
+                <field name="es_entidad" invisible="1"/>
+                <field name="etiquetas" string="Etiquetas"/>
+                <field name="image_128"/>
+           <templates>
+             <t t-name="kanban-box">
+               <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+
+                  <t>
+                      <t t-set="placeholder" t-value="'/base/static/img/company_image.png'"/>
+                      <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('sicpro.app.clientes', 'image_128', record.id.raw_value, placeholder)})" role="img"/>
+                  </t>
+
+                  <div class="oe_kanban_details">
+                      <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                      <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                      <ul>
+                          <li t-if="record.cargo.raw_value"><field name="cargo"/></li>
+                          <li t-if="record.territorio.raw_value and record.provincia.raw_value"><field name="territorio"/>, <field name="provincia"/></li>
+                          <li t-if="record.correo.raw_value" class="o_text_overflow"><field name="correo"/></li>
+                      </ul>
+                      <div class="oe_kanban_partner_links"/>
+                  </div>
+               </div>
+             </t>
+           </templates>
+        </kanban>
+                            </field>
+                        </page>
+
+                        <page name="observaciones" string="Detalles Generales del Cliente">
+                            <field name="observaciones" placeholder="Notas sobre el cliente..."/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+    <!--Busqueda-->
+    <record id="clientes_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Clientes</field>
+       <field name="model">sicpro.app.clientes</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Clientes">
+                <field name="name" string="Nombre"/>
+                <field name="cargo" string="Cargo"/>
+                <field name="territorio" string="Territorio"/>
+                <field name="provincia" string="Provincia"/>
+                <field name="etiquetas" string="Etiquetas"/>
+            <filter string="Persona" name="es_entidad" domain="[('es_entidad', '=',False)]"/>
+            <filter string="Entidad" name="es_entidad" domain="[('es_entidad', '=',True)]"/>
+            <separator/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+            <group expand="0" string="Group By">
+                <filter string="Territorio" name="territorio" domain="[]" context="{'group_by':'territorio'}"/>
+                <filter string="Provincia" name="provincia" domain="[]" context="{'group_by':'provincia'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+
+    <record id="clientes_view_kanban" model="ir.ui.view">
+     <field name="name">clientes.view.kanban</field>
+      <field name="model">sicpro.app.clientes</field>
+     <field name="arch" type="xml">
+
+        <kanban>
+                <field name="id"/>
+                <field name="name" string="Nombre"/>
+                <field name="cargo" string="Cargo"/>
+                <field name="telefono_movil" string="Móvil"/>
+                <field name="correo" string="Correo electrónico"/>
+                <field name="territorio" string="Territorio"/>
+                <field name="provincia" string="Provincia"/>
+                <field name="etiquetas" string="Etiquetas"/>
+                <field name="active" invisible="1"/>
+                <field name="entidad" invisible="1"/>
+                <field name="es_entidad" invisible="1"/>
+                <field name="image_128"/>
+           <templates>
+             <t t-name="kanban-box">
+               <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+
+                  <t t-if="!record.es_entidad.raw_value">
+                    <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('sicpro.app.clientes', 'image_128', record.id.raw_value,  placeholder)}')">
+                        <img class="o_kanban_image_inner_pic" t-if="record.entidad.raw_value" t-att-alt="record.entidad.value" t-att-src="kanban_image('res.partner', 'image_128', record.entidad.raw_value)"/>
+                    </div>
+                    <div class="o_kanban_image rounded-circle d-md-none" t-attf-style="background-image:url('#{kanban_image('sicpro.app.clientes', 'image_128', record.id.raw_value,  placeholder)}')">
+                        <img class="o_kanban_image_inner_pic" t-if="record.entidad.raw_value" t-att-alt="record.entidad.value" t-att-src="kanban_image('res.partner', 'image_128', record.entidad.raw_value)"/>
+                    </div>
+                  </t>
+
+                  <t t-else="">
+                      <t t-set="placeholder" t-value="'/base/static/img/company_image.png'"/>
+                      <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('sicpro.app.clientes', 'image_128', record.id.raw_value, placeholder)})" role="img"/>
+                  </t>
+
+                  <div class="oe_kanban_details">
+                      <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                      <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                      <ul>
+                          <li t-if="record.cargo.raw_value"><field name="cargo"/></li>
+                          <li t-if="record.territorio.raw_value and record.provincia.raw_value"><field name="territorio"/>, <field name="provincia"/></li>
+                          <li t-if="record.correo.raw_value" class="o_text_overflow"><field name="correo"/></li>
+                      </ul>
+                      <div class="oe_kanban_partner_links"/>
+                  </div>
+               </div>
+             </t>
+           </templates>
+        </kanban>
+
+     </field>
+    </record>
+
+
+    <record id="action_clientes" model="ir.actions.act_window">
+        <field name="name">Clientes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.clientes</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Crea un cliente en tu libreta de direcciones
+          </p><p>
+            SICPRO ERP lo ayuda a rastrear fácilmente todas las actividades relacionadas con un cliente.
+          </p>
+        </field>
+    </record>
+
+
+    <menuitem name="Clientes"  id="menu_clientes_root" sequence="4"
+       web_icon="sicpro_app_clientes,static/description/icon.png" groups="grupo_app_clientes"/>
+
+    <menuitem id="menu_clientes_principal" name="Clientes" action="action_clientes"
+              parent="menu_clientes_root" sequence="2"/>
+
+    <menuitem id="menu_clientes_configuracion" name="Configuración" parent="menu_clientes_root" sequence="2"
+              groups="grupo_clientes_configuracion"/>
+
+    <menuitem id="menu_nomenclador_cliente_territorio" name="Territorios" parent="menu_clientes_configuracion"
+              action="sicpro_modulo_nomencladores.action_nomenclador_territorio" sequence="2" />
+
+
+</odoo>

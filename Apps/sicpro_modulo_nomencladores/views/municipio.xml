@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+     <!--vista formulario-->
+    <record id="municipio_form_view" model="ir.ui.view">
+        <field name="name">municipio.form.view</field>
+        <field name="model">sicpro.nomenclador.municipio</field>
+        <field name="arch" type="xml">
+            <form string="Municipio">
+                <sheet>
+                    <group>
+                        <field name="name" string="Municipio"/>
+                        <field name="provincia" string="Provincia"/>
+                        <field name="active" string="Activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="municipio_tree_view" model="ir.ui.view">
+        <field name="name">municipio.tree.view</field>
+        <field name="model">sicpro.nomenclador.municipio</field>
+        <field name="arch" type="xml">
+            <tree string="Municipio">
+                <field name="name" string="Municipio" width="20"/>
+                   <field name="provincia" string="Provincia"/>
+                   <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="municipio_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Municipios</field>
+       <field name="model">sicpro.nomenclador.municipio</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Municipios">
+            <field name="name" string="Municipio"/>
+            <field name="provincia" string="Provincia"/>
+            <filter string="Activo" name="active" domain="[('active', '=',True)]"/>
+            <filter string="No Activo" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_municipios" model="ir.actions.act_window">
+        <field name="name">Municipios</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.municipio</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('active', '=',False),('active', '=',True)]</field>
+    </record>
+
+
+    <!--Menus principal Nomencladores-->
+    <!--<menuitem id="menu__nomencladores_root" name="Nomencladores" parent="base.menu_administration" sequence="10" groups="grupo_sicpro_nomencladores"/>-->
+    <!-- Sub menu Acuerdo de servicios -->
+    <menuitem id="menu_municipios" name="Municipios" parent="menu__nomencladores_root"
+              action="action_municipios" sequence="4" />
+
+
+</odoo>

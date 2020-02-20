@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+		<template id="assets_backend" name="Openworx Backend Theme" inherit_id="web.assets_backend">
+		<xpath expr=".">
+              <link rel="stylesheet" href="/sicpro_modulo_temavisual/static/src/scss/style.scss"/>
+			 <!-- 	<link rel="stylesheet" href="/sicpro_modulo_temavisual/static/src/scss/sidebar.scss"/>
+				<script type="application/javascript" src="/sicpro_modulo_temavisual/static/src/js/sidebar.js"/>
+				<script type="application/javascript" src="/sicpro_modulo_temavisual/static/src/js/sidebar-toggle.js"/> -->
+			</xpath>
+		</template>
+    </data>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+     <!--vista formulario-->
+    <record id="nomenclador_meses_form_view" model="ir.ui.view">
+        <field name="name">nomenclado.meses.form.view</field>
+        <field name="model">sicpro.nomenclador.meses</field>
+        <field name="arch" type="xml">
+            <form string="Meses">
+                <sheet>
+                    <group>
+                        <field name="codigo_mes" string="Código"/>
+                        <field name="name" string="Mes"/>
+                        <field name="active" string="Activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="nomenclador_meses_tree_view" model="ir.ui.view">
+        <field name="name">nomenclador.meses.tree.view</field>
+        <field name="model">sicpro.nomenclador.meses</field>
+        <field name="arch" type="xml">
+            <tree string="Mes">
+                <field name="codigo_mes" string="Código" width="5"/>
+                <field name="name" string="Mes"/>
+                <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="nomenclador_meses_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Meses</field>
+       <field name="model">sicpro.nomenclador.meses</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Meses">
+            <field name="name" string="Mes"/>
+            <filter string="Activo" name="active" domain="[('active', '=',True)]"/>
+            <filter string="No Activo" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_nomenclador_meses" model="ir.actions.act_window">
+        <field name="name">Meses</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.meses</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('active', '=',False),('active', '=',True)]</field>
+    </record>
+
+
+    <!--Menus principal Nomencladores-->
+    <!--<menuitem id="menu__nomencladores_root" name="Nomencladores" parent="base.menu_administration" sequence="10" groups="grupo_sicpro_nomencladores"/>-->
+    <!-- Sub menu Acuerdo de servicios -->
+    <menuitem id="menu_nomenclador_meses" name="Meses" parent="menu__nomencladores_root"
+              action="action_nomenclador_meses" sequence="1" />
+
+
+</odoo>

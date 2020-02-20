@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <data>
+          <!-- Creo la categoria de permisos Proyectos -->
+         <record id="module_category_clientes" model="ir.module.category">
+            <field name="name">Clientes</field>
+            <field name="sequence" >11</field>
+        </record>
+
+        <record id="grupo_app_clientes" model="res.groups">
+            <field name="name">1. Ver Clientes</field>
+            <field name="comment">Permisos a visualizar todos los clientes</field>
+            <field name="category_id" ref="module_category_clientes"/>
+        </record>
+
+         <record id="grupo_clientes_crear_modificar" model="res.groups">
+            <field name="name">2. Crea/Modifica Clientes</field>
+            <field name="comment">Permisos a crear y modificar Clientes</field>
+            <field name="category_id" ref="module_category_clientes"/>
+        </record>
+
+         <record id="grupo_clientes_eliminar" model="res.groups">
+            <field name="name">3. Eliminar Clientes</field>
+            <field name="comment">Permisos para eliminar Clientes</field>
+            <field name="category_id" ref="module_category_clientes"/>
+        </record>
+
+        <record id="grupo_clientes_configuracion" model="res.groups">
+            <field name="name">4. Configuración Clientes</field>
+            <field name="comment">Permisos para configurar Clientes</field>
+            <field name="category_id" ref="module_category_clientes"/>
+        </record>
+
+     </data>
+
+
+</odoo>

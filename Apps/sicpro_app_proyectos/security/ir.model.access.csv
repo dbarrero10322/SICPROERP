@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"app_proyectos_general","Tabla General Proyectos","model_sicpro_app_proyectos","grupo_app_proyectos",1,0,0,0
+"app_proyectos_crear_modificar","Crear/Modificar Proyectos","model_sicpro_app_proyectos","grupo_proyecto_crear_modificar",1,1,1,0
+"app_proyectos_eliminar","Eliminar Proyectos","model_sicpro_app_proyectos","grupo_proyecto_eliminar",1,0,0,1
+

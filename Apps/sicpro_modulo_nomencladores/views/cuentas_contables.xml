@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+     <!--vista formulario-->
+    <record id="cuentas_contables_form_view" model="ir.ui.view">
+        <field name="name">cuentas.contables.form.view</field>
+        <field name="model">sicpro.nomenclador.cuentas.contables</field>
+        <field name="arch" type="xml">
+            <form string="Cuentas Contables">
+                <sheet>
+                    <group>
+                        <field name="name" string="Cuenta"/>
+                        <field name="descripcion" string="Descripción"/>
+                        <field name="active" string="Activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="cuentas_contables_tree_view" model="ir.ui.view">
+        <field name="name">cuentas.contables.tree.view</field>
+        <field name="model">sicpro.nomenclador.cuentas.contables</field>
+        <field name="arch" type="xml">
+            <tree string="Cuentas Contables">
+                <field name="name" string="Cuentas"/>
+                <field name="descripcion" string="Descripción"/>
+                <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="cuentas_contables_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Cuentas</field>
+       <field name="model">sicpro.nomenclador.cuentas.contables</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Cuentas">
+            <field name="name" string="Cuenta"/>
+            <field name="descripcion" string="Descripción"/>
+            <filter string="Activo" name="active" domain="[('active', '=',True)]"/>
+            <filter string="No Activo" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_cuentas_contables" model="ir.actions.act_window">
+        <field name="name">Cuentas Contbles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.cuentas.contables</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('active', '=',False),('active', '=',True)]</field>
+    </record>
+
+
+    <!--Menus principal Nomencladores-->
+    <!--<menuitem id="menu__nomencladores_root" name="Nomencladores" parent="base.menu_administration" sequence="10" groups="grupo_sicpro_nomencladores"/>-->
+    <!-- Sub menu Acuerdo de servicios -->
+    <menuitem id="menu_cuentas_contables" name="Cuentas Contables" parent="menu__nomencladores_root"
+              action="action_cuentas_contables" sequence="9" />
+
+
+</odoo>

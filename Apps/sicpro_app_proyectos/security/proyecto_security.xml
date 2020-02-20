@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <!-- Creo la categoria de permisos Proyectos -->
+         <record id="module_category_proyectos" model="ir.module.category">
+            <field name="name">Proyectos</field>
+            <field name="sequence" >12</field>
+        </record>
+
+        <record id="grupo_app_proyectos" model="res.groups">
+            <field name="name">1. Ver Proyectos</field>
+            <field name="comment">Permisos a la app y tabla general de proyectos</field>
+            <field name="category_id" ref="module_category_proyectos"/>
+        </record>
+
+         <record id="grupo_proyecto_crear_modificar" model="res.groups">
+            <field name="name">2. Crea/Modifica Proyectos</field>
+            <field name="comment">Permisos a crear y modificar proyectos</field>
+            <field name="category_id" ref="module_category_proyectos"/>
+        </record>
+
+         <record id="grupo_proyecto_eliminar" model="res.groups">
+            <field name="name">3. Eliminar Proyectos</field>
+            <field name="comment">Permisos para eliminar proyectos</field>
+            <field name="category_id" ref="module_category_proyectos"/>
+        </record>
+
+
+</data>
+
+    <data noupdate="0">
+
+        <!-- Creo una regla para que se vean los datos del proceso especifico -->
+        <record id="proyectos_multi_comp_rule" model="ir.rule">
+         <field name="name">Regla de Proyectos Multicompañia</field>
+         <field name="model_id" ref="model_sicpro_app_proyectos"/>
+         <field name="global" eval="True"/>
+         <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+    </data>
+
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <!--Categoria de Herramientas Administrativas para los usuarios-->
+        <record id="sicpro_category_herramientas_administrativas" model="ir.module.category">
+            <field name="name">Administración SICPRO</field>
+            <field name="sequence" >10</field>
+        </record>
+
+         <record id="grupo_sicpro_nomencladores_ver" model="res.groups">
+            <field name="name">1. Ver Nomencladores  (All/User)</field>
+            <field name="comment">Permisos para visualizar Nomencladores</field>
+            <field name="category_id" ref="sicpro_category_herramientas_administrativas"/>
+        </record>
+
+        <record id="grupo_sicpro_nomencladores_crear" model="res.groups">
+            <field name="name">2. Crear Nomencladores</field>
+            <field name="comment">Permisos a crear Nomencladores</field>
+            <field name="category_id" ref="sicpro_category_herramientas_administrativas"/>
+        </record>
+
+        <record id="grupo_sicpro_nomencladores_full" model="res.groups">
+            <field name="name">3. Acceso Total a Nomencladores</field>
+            <field name="comment">Permisos Full a Nomencladores</field>
+            <field name="category_id" ref="sicpro_category_herramientas_administrativas"/>
+        </record>
+
+    </data>
+</odoo>

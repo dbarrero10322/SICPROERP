@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+     <!--vista formulario-->
+    <record id="tipo_ordenes_form_view" model="ir.ui.view">
+        <field name="name">tipo.ordenes.form.view</field>
+        <field name="model">sicpro.nomenclador.tipos.ordenes</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de Ordenes">
+                <sheet>
+                    <group>
+                        <field name="name" string="Tipo"/>
+                        <field name="codigo" string="Código"/>
+                        <field string="Proceso" name="company_id" />
+                        <field name="active" string="Activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="tipo_ordenes_tree_view" model="ir.ui.view">
+        <field name="name">tipo.ordenes.tree.view</field>
+        <field name="model">sicpro.nomenclador.tipos.ordenes</field>
+        <field name="arch" type="xml">
+            <tree string="Tipo de Ordenes">
+                <field name="name" string="Tipos"/>
+                <field name="codigo" string="Código"/>
+                <field string="Proceso" name="company_id" />
+                <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="tipo_ordenes_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Tipo de Orden</field>
+       <field name="model">sicpro.nomenclador.tipos.ordenes</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Tipo de orden">
+            <field name="name" string="Tipo"/>
+            <field string="Proceso" name="company_id" />
+            <filter string="Activo" name="active" domain="[('active', '=',True)]"/>
+            <filter string="No Activo" name="active" domain="[('active', '=',False)]"/>
+            <group expand="0" string="Group By">
+                <filter string="Proceso" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_tipo_ordenes" model="ir.actions.act_window">
+        <field name="name">Tipo de Ordenes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.tipos.ordenes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('active', '=',False),('active', '=',True)]</field>
+    </record>
+
+
+    <!--Menus principal Nomencladores-->
+    <!--<menuitem id="menu__nomencladores_root" name="Nomencladores" parent="base.menu_administration" sequence="10" groups="grupo_sicpro_nomencladores"/>-->
+    <!-- Sub menu Acuerdo de servicios -->
+    <menuitem id="menu_tipo_ordenes" name="Tipo de Orden" parent="menu__nomencladores_root"
+              action="action_tipo_ordenes" sequence="7" />
+
+
+</odoo>

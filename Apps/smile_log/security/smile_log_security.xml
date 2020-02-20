@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+	<data noupdate="0">
+
+		<record id="group_smile_log_user" model="res.groups">
+			<field name="name">4. Registros Logs</field>
+			<field name="comment">Acceso a los registros Logs de SICPRO</field>
+            <field name="category_id" ref="sicpro_modulo_nomencladores.sicpro_category_herramientas_administrativas"/>
+
+		</record>
+
+	</data>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+     <!--vista formulario-->
+    <record id="documentacion_tecnica_form_view" model="ir.ui.view">
+        <field name="name">documentacion.tecnica.form.view</field>
+        <field name="model">sicpro.nomenclador.documentacion.tecnica</field>
+        <field name="arch" type="xml">
+            <form string="Documentación Técnica">
+                <sheet>
+                    <group>
+                        <field name="name" string="Documento"/>
+                        <field name="descripcion" string="Descripción"/>
+                        <field string="Proceso" name="company_id" />
+                        <field name="active" string="Activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="documentacion_tecnica_tree_view" model="ir.ui.view">
+        <field name="name">documentacion.tecnica.tree.view</field>
+        <field name="model">sicpro.nomenclador.documentacion.tecnica</field>
+        <field name="arch" type="xml">
+            <tree string="Documentación Técnica">
+                <field name="name" string="Documento"/>
+                <field name="descripcion" string="Descripción"/>
+                <field string="Proceso" name="company_id" />
+                <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="documentacion_tecnica_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Documentacion Técnica</field>
+       <field name="model">sicpro.nomenclador.documentacion.tecnica</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Documentación">
+            <field name="name" string="Documento"/>
+            <field string="Proceso" name="company_id" />
+            <filter string="Activo" name="active" domain="[('active', '=',True)]"/>
+            <filter string="No Activo" name="active" domain="[('active', '=',False)]"/>
+            <group expand="0" string="Group By">
+                <filter string="Proceso" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_documentacion_tecnica" model="ir.actions.act_window">
+        <field name="name">Documentación Técnica</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.documentacion.tecnica</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('active', '=',False),('active', '=',True)]</field>
+    </record>
+
+
+    <!--Menus principal Nomencladores-->
+    <!--<menuitem id="menu__nomencladores_root" name="Nomencladores" parent="base.menu_administration" sequence="10" groups="grupo_sicpro_nomencladores"/>-->
+    <!-- Sub menu Acuerdo de servicios -->
+    <menuitem id="menu_documentacion_tecnica" name="Documentación Técnica" parent="menu__nomencladores_root"
+              action="action_documentacion_tecnica" sequence="14" />
+
+
+</odoo>

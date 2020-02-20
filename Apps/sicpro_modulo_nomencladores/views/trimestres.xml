@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+     <!--vista formulario-->
+    <record id="trimestre_form_view" model="ir.ui.view">
+        <field name="name">trimestre.form.view</field>
+        <field name="model">sicpro.trimestre</field>
+        <field name="arch" type="xml">
+            <form string="Estado de Trimestre">
+                <sheet>
+                    <group>
+                        <field name="name" string="Trimestre"/>
+                        <field name="descripcion" string="Descripción"/>
+                        <field name="active" string="Activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="trimestre_tree_view" model="ir.ui.view">
+        <field name="name">trimestre.tree.view</field>
+        <field name="model">sicpro.trimestre</field>
+        <field name="arch" type="xml">
+            <tree string="Estado de Trimestre">
+                <field name="name" string="Trimestre"/>
+                <field name="descripcion" string="Descripción"/>
+                <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="trimestre_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Trimestre</field>
+       <field name="model">sicpro.trimestre</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Trimestre">
+            <field name="name" string="Trimestre"/>
+            <field name="descripcion" string="Descripción"/>
+            <filter string="Activo" name="active" domain="[('active', '=',True)]"/>
+            <filter string="No Activo" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_trimestre" model="ir.actions.act_window">
+        <field name="name">Estado de Trimestre</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.trimestre</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('active', '=',False),('active', '=',True)]</field>
+    </record>
+
+
+    <!--Menus principal Nomencladores-->
+    <!--<menuitem id="menu__nomencladores_root" name="Nomencladores" parent="base.menu_administration" sequence="10" groups="grupo_sicpro_nomencladores"/>-->
+    <!-- Sub menu Acuerdo de servicios -->
+    <menuitem id="menu_trimestre" name="Trimestres" parent="menu__nomencladores_root" action="action_trimestre" sequence="5" />
+
+
+</odoo>

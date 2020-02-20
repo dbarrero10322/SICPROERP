@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+     <!--vista formulario-->
+    <record id="proyectos_general_form_view" model="ir.ui.view">
+        <field name="name">proyectos.general.form.view</field>
+        <field name="model">sicpro.app.proyectos</field>
+        <field name="arch" type="xml">
+            <form string="Proyectos">
+                <sheet>
+                    <group name="group_top">
+
+                        <group name="group_left">
+                          <field name="codigo" string="Código"/>
+                          <field name="orden" string="Orden"/>
+                            <field name="name" string="Titulo"/>
+                          <field name="pep" string="Pep" placeholder="xxxx.xxxxx.x"/>
+                        </group>
+
+                        <group name="group_right">
+                          <widget name="web_ribbon" text="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                          <field name="especialidad" string="Especialidad"
+                                 options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                          <field name="presupuesto" string="Presupuesto" widget="monetary"/>
+                          <field name="fecha_emision" string="Emitido"/>
+                          <field name="fecha_recibido_deoit" string="Recibido DEOIT"/>
+                        </group>
+
+                    </group>
+
+                    <group>
+                        <field name="alcance" string="Alcance"/>
+                        <field name="company_id" string="company_id" invisible="1"/>
+                        <field name="active" string="Activo" invisible="1"/>
+                    </group>
+                </sheet>
+                <!--Heredo modulo de mensajeria-->
+                <sheet>
+                  <div class="oe_chatter">
+                   <field name="message_follower_ids" widget="mail_followers"/>
+                   <field name = "activity_ids" widget = "mail_activity" />
+                   <field name="message_ids" widget="mail_thread"/>
+                  </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+      <!--vista arbol-->
+    <record id="proyectos_general_tree_view" model="ir.ui.view">
+        <field name="name">proyectos.general.tree.view</field>
+        <field name="model">sicpro.app.proyectos</field>
+        <field name="arch" type="xml">
+            <tree string="Proyectos" import="false" decoration-danger="active==False">
+                <field name="id" string="ID" width="5"/>
+                <field name="codigo" string="Código" optional="show"/>
+                <field name="orden" string="Orden" optional="show"/>
+                <field name="name" string="Titulo" optional="show"/>
+                <field name="pep" string="Pep" optional="show"/>
+                <field name="especialidad" string="Especialidad" optional="show"/>
+                <field name="presupuesto" string="Presupuesto" widget="monetary" optional="show"/>
+                <field name="fecha_emision" string="Emitido" optional="show"/>
+                <field name="fecha_recibido_deoit" string="Recibido DEOIT" optional="show"/>
+                <field name="alcance" string="Alcance" optional="hide"/>
+                <field name="anio" string="Año" optional="hide"/>
+                <field name="company_id" string="Proceso" optional="hide"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--Busqueda-->
+    <record id="proyectos_general_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Proyectos</field>
+       <field name="model">sicpro.app.proyectos</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Proyectos">
+            <field name="codigo" string="Código"/>
+            <field name="orden" string="Orden"/>
+            <field name="name" string="Titulo"/>
+            <field name="pep" string="Pep"/>
+            <field name="especialidad" string="Especialidad"/>
+            <field name="fecha_emision" string="Emitido"/>
+            <field name="fecha_recibido_deoit" string="Recibido DEOI"/>
+            <field name="anio" string="Año"/>
+            <filter string="Activos" name="active" domain="[('active', '=',True)]"/>
+            <separator/>
+                <filter string="Año Actual" name="name" domain="[('anio', '=',(context_today().strftime('%Y')))]"/>
+            <group expand="0" string="Group By">
+                <filter string="Especialidad" name="especialidad" domain="[]" context="{'group_by':'especialidad'}"/>
+                <filter string="Año" name="name" domain="[]" context="{'group_by':'anio'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+
+    <!--Acción-->
+    <record id="action_proyectos_general" model="ir.actions.act_window">
+        <field name="name">Proyectos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.proyectos</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="proyectos_general_filter_view"/>
+        <field name="domain">['|',('active', '=',False),('active', '=',True)]</field>
+        <field name="context">{"search_default_active": 1, "search_default_anio": (context_today().strftime('%Y'))}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Aplicación Principal de Proyectos
+          </p><p>
+            Ahora puede empezar a agregar los proyectos al sistema SICPRO ERP.
+          </p>
+        </field>
+    </record>
+
+
+    Menus principal Proyectos
+    <menuitem id="menu__proyectos_root" name="Proyectos" sequence="10" action="action_proyectos_general"
+              web_icon="sicpro_app_proyectos,static/description/icon.png" groups="grupo_app_proyectos"/>
+
+
+
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+     <!--vista formulario-->
+    <record id="tipo_pasajes_form_view" model="ir.ui.view">
+        <field name="name">tipo.pasajes.form.view</field>
+        <field name="model">sicpro.nomenclador.tipos.pasajes</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de Pasaje">
+                <sheet>
+                    <group>
+                        <field name="name" string="Tipo"/>
+                        <field string="Proceso" name="company_id" />
+                        <field name="active" string="Activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="tipo_pasaje_tree_view" model="ir.ui.view">
+        <field name="name">tipo.pasaje.tree.view</field>
+        <field name="model">sicpro.nomenclador.tipos.pasajes</field>
+        <field name="arch" type="xml">
+            <tree string="Tipos de Pasajes">
+                <field name="name" string="Tipos"/>
+                <field string="Proceso" name="company_id" />
+                <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="tipo_pasajes_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Tipo de Pasaje</field>
+       <field name="model">sicpro.nomenclador.tipos.pasajes</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Tipo de Pasaje">
+            <field name="name" string="Tipo"/>
+            <field string="Proceso" name="company_id" />
+            <filter string="Activo" name="active" domain="[('active', '=',True)]"/>
+            <filter string="No Activo" name="active" domain="[('active', '=',False)]"/>
+            <group expand="0" string="Group By">
+                <filter string="Proceso" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_tipo_pasajes" model="ir.actions.act_window">
+        <field name="name">Tipo de Pasajes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.tipos.pasajes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('active', '=',False),('active', '=',True)]</field>
+    </record>
+
+
+    <!--Menus principal Nomencladores-->
+    <!--<menuitem id="menu__nomencladores_root" name="Nomencladores" parent="base.menu_administration" sequence="10" groups="grupo_sicpro_nomencladores"/>-->
+    <!-- Sub menu Acuerdo de servicios -->
+    <menuitem id="menu_tipo_pasajes" name="Tipo de Pasaje" parent="menu__nomencladores_root"
+              action="action_tipo_pasajes" sequence="8" />
+
+
+</odoo>

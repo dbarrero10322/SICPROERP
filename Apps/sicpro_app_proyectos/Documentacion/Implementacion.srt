@@ -1,0 +1,20 @@
+AUTOMATIZACION:
+
+1- Para agregar seguidores
+
+2- Para enviar notificaciones de proyectos creados:
+   Codigo:
+            display_msg = """<strong>Nuevo proyecto creado</strong>
+                          <br/>
+                          <strong>Proyecto:</strong> """ + str(record.name) + """
+                          <br/>
+                          <strong>Código:</strong> """ + str(record.codigo) + """
+                          <br/>
+                          <strong>Especialidad:</strong> """ + str(record.especialidad.name) + """
+                          <br/>
+                          <strong>Pep:</strong> """ + str(record.pep) + """
+                          <br/> """
+record.message_post(body=display_msg, type="notification", subtype="mt_comment")
+
+
+3-
