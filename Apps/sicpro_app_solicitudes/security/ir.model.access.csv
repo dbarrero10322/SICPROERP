@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"app_solicitudes_general","Tabla General Solicitudes","model_sicpro_app_solicitudes","grupo_app_solicitudes",1,0,0,0
+"app_solicitudes_crear_modificar","Crear/Modificar Solicitudes","model_sicpro_app_solicitudes","grupo_solicitudes_crear_modificar",1,1,1,0
+"app_solicitudes_eliminar","Eliminar Solicitudes","model_sicpro_app_solicitudes","grupo_solicitudes_eliminar",1,0,0,1
+
