@@ -7,19 +7,39 @@
         <field name="name">solicitudes.inversionistas.form.view</field>
         <field name="model">sicpro.app.solicitudes.inversionistas</field>
         <field name="arch" type="xml">
-            <form string="Solicitudes">
+            <form string="Solicitud de Trabajo">
                 <sheet>
+
+                    <div class="oe_title">
+
+                       <h1>
+                            <field name="cliente" default_focus="1" placeholder="Cliente" />
+                        </h1>
+                        <div class="o_row">
+                          <field name="active" invisible="1"/>
+                        </div>
+                        <group name="group_superior_izq">
+                          <field name="territorio" string="Territorio" placeholder="Territorio" options="{'no_open': True, 'no_create_edit': True}"/>
+                          <field name="provincia" string="Provincia" placeholder="Provincia" options="{'no_open': True, 'no_create_edit': True}"/>
+                        </group>
+                        <group name="group_superior_dere">
+                          <field name="prioridad" string="Prioridad" widget="priority"/>
+                        </group>
+                    </div>
+
                     <group name="group_top">
 
                         <group name="group_left">
-
                           <field name="name" string="Titulo"/>
+
                           <field name="pep" string="Pep" placeholder="xxxx.xxxxx"/>
                         </group>
 
                         <group name="group_right">
                           <widget name="web_ribbon" text="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
-                           <field name="especialidad" string="Especialidad"
+                          <field name="proceso" string="proceso"/>
+                          <field name="documentacion" string="documentacion"/>
+                          <field name="especialidad" string="Especialidad"
                                  options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
 
                         </group>
@@ -28,8 +48,9 @@
 
                     <group>
                         <field name="alcance" string="Alcance"/>
-                        <field name="company_id" string="company_id" invisible="1"/>
-                        <field name="active" string="Activo" invisible="1"/>
+                        <field name="observaciones" string="Alcance"/>
+                        <field name="company_id" string="company_id" invisible="0"/>
+                        <field name="fecha_creada_solicitud" string="fecha_creada_solicitud" invisible="0"/>
                     </group>
                 </sheet>
                 <!--Heredo modulo de mensajeria-->
@@ -49,7 +70,7 @@
         <field name="name">solicitudes.inversionistas.tree.view</field>
         <field name="model">sicpro.app.solicitudes.inversionistas</field>
         <field name="arch" type="xml">
-            <tree string="Solicitudes" import="false" decoration-danger="active==False">
+            <tree string="Solicitud de Trabajo" import="false" decoration-danger="active==False">
                 <field name="id" string="ID" width="5"/>
 
                 <field name="name" string="Titulo" optional="show"/>
@@ -88,7 +109,7 @@
 
     <!--Acción-->
     <record id="action_solicitudes_inversionistas" model="ir.actions.act_window">
-        <field name="name">Solicitudes</field>
+        <field name="name">Solicitud de Trabajo</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">sicpro.app.solicitudes.inversionistas</field>
         <field name="view_mode">tree,form</field>
@@ -106,10 +127,11 @@
 
 
     <!--Menus principal inversionistas-->
-    <menuitem id="menu_solicitudes_inversionistas" name="Inversionistas" sequence="10" parent="menu_solicitudes_root"
-              groups="grupo_app_solicitudes"/>
-    <menuitem id="menu_solicitar_trabajo" name="Solicitar Trabajo" sequence="1" parent="menu_solicitudes_inversionistas"
-              groups="grupo_app_solicitudes"/>
+    <menuitem id="menu_solicitudes_inversionistas" name="Inversionistas" sequence="3" parent="menu_solicitudes_root"
+              groups="grupo_app_solicitudes_clientes"/>
+
+    <menuitem id="menu_solicitar_trabajo" name="Solicitar Trabajo" sequence="1" action="action_solicitudes_inversionistas"
+              parent="menu_solicitudes_inversionistas" groups="grupo_app_solicitudes_clientes"/>
 
 
 

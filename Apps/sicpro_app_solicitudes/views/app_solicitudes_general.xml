@@ -106,14 +106,13 @@
 
 
     <!--Menus principal Solicitudes-->
-    <menuitem id="menu_solicitudes_root" name="Solicitudes" sequence="10" action="action_solicitudes_general"
+    <menuitem id="menu_solicitudes_root" name="Solicitudes" sequence="11"
               web_icon="sicpro_app_solicitudes,static/description/icon.png" groups="grupo_app_solicitudes"/>
 
-    <menuitem id="menu_solicitudes_inversionistas" name="Inversionistas" sequence="1" parent="menu_solicitudes_root"
-              groups="grupo_app_solicitudes"/>
+    <menuitem id="menu_solicitudes_principal" name="Solicitudes" sequence="2" action="action_solicitudes_general"
+              parent="menu_solicitudes_root" groups="grupo_app_solicitudes"/>
 
-    <menuitem id="menu_solicitudes_ejecutor" name="Ejecutor" sequence="2" parent="menu_solicitudes_root"
-               groups="grupo_app_solicitudes"/>
+
 
 
 

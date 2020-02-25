@@ -1,5 +1,10 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+
 "app_solicitudes_general","Tabla General Solicitudes","model_sicpro_app_solicitudes","grupo_app_solicitudes",1,0,0,0
 "app_solicitudes_crear_modificar","Crear/Modificar Solicitudes","model_sicpro_app_solicitudes","grupo_solicitudes_crear_modificar",1,1,1,0
 "app_solicitudes_eliminar","Eliminar Solicitudes","model_sicpro_app_solicitudes","grupo_solicitudes_eliminar",1,0,0,1
+
+"app_solicitudes_clientes","Tabla Solicitudes de Clientes","model_sicpro_app_solicitudes_inversionistas","grupo_app_solicitudes_clientes",1,0,0,0
+"app_solicitudes_clientes_crear_modificar","Crear/Modificar Trabajos","model_sicpro_app_solicitudes_inversionistas","grupo_solicitudes_crear_modificar_clientes",1,1,1,0
+"app_solicitudes_clientes_eliminar","Eliminar Solicitudes Clientes","model_sicpro_app_solicitudes_inversionistas","grupo_solicitudes_eliminar_clientes",1,0,0,1
 
