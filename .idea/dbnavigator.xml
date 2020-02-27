@@ -23,7 +23,12 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="a331260f-d192-4164-a4be-3d87fb411b7c">
+        <schema name="pg_catalog" object-types="function" />
+        <schema name="public" object-types="sequence, dataset trigger, view, constraint, function, index, column, table" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="a331260f-d192-4164-a4be-3d87fb411b7c">
@@ -31,13 +36,19 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="a331260f-d192-4164-a4be-3d87fb411b7c" object-ref="schemas/public/tables/res_users" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="a331260f-d192-4164-a4be-3d87fb411b7c" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="a331260f-d192-4164-a4be-3d87fb411b7c" dataset="public.res_partner" active-filter-id="" />
+    <filter-actions connection-id="a331260f-d192-4164-a4be-3d87fb411b7c" dataset="public.res_users" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="a331260f-d192-4164-a4be-3d87fb411b7c" dataset="public.res_partner" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="a331260f-d192-4164-a4be-3d87fb411b7c" dataset="public.res_company_ldap" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="a331260f-d192-4164-a4be-3d87fb411b7c" dataset="public.res_company_users_rel" active-filter-id="" />
+    <filter-actions connection-id="a331260f-d192-4164-a4be-3d87fb411b7c" dataset="public.res_company" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

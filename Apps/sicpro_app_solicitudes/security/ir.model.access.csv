@@ -7,4 +7,4 @@
 "app_solicitudes_clientes","Tabla Solicitudes de Clientes","model_sicpro_app_solicitudes_inversionistas","grupo_app_solicitudes_clientes",1,0,0,0
 "app_solicitudes_clientes_crear_modificar","Crear/Modificar Trabajos","model_sicpro_app_solicitudes_inversionistas","grupo_solicitudes_crear_modificar_clientes",1,1,1,0
 "app_solicitudes_clientes_eliminar","Eliminar Solicitudes Clientes","model_sicpro_app_solicitudes_inversionistas","grupo_solicitudes_eliminar_clientes",1,0,0,1
-
+"access_res_company_app_solicitudes_clientes","Acceso a res_company Clientes","base.model_res_company","grupo_app_solicitudes_clientes",1,0,0,0

@@ -29,28 +29,29 @@
     </data>
 
 
-    <!-- <data noupdate="0">
-         Creo una regla para que se vean los datos del proceso especifico
+     <data noupdate="0">
+      <!--   Creo una regla para que se vean los datos del proceso especifico
         <record id="solicitudes_multi_comp_rule" model="ir.rule">
          <field name="name">Regla de Solicitudes Multicompañia</field>
          <field name="model_id" ref="model_sicpro_app_solicitudes"/>
          <field name="global" eval="True"/>
          <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
-        </record>
+        </record>-->
 
-    </data> -->
+
+    </data>
 
 
     <!-- Categoria de permisos Usuarios Inversionistas -->
     <data>
-          <!-- Creo la categoria de permisos Clientes -->
+          <!-- Creo la categoria de permisos inversionistas -->
          <record id="module_category_solicitudes_clientes" model="ir.module.category">
-            <field name="name">Clientes</field>
+            <field name="name">Inversionistas</field>
             <field name="sequence" >14</field>
         </record>
 
         <record id="grupo_app_solicitudes_clientes" model="res.groups">
-            <field name="name">1. Ver Solicitudes de Clientes</field>
+            <field name="name">1. Ver Trabajos</field>
             <field name="comment">Permisos a la app a solicitar trabajos</field>
             <field name="category_id" ref="module_category_solicitudes_clientes"/>
         </record>
@@ -62,23 +63,32 @@
         </record>
 
          <record id="grupo_solicitudes_eliminar_clientes" model="res.groups">
-            <field name="name">3. Eliminar Solicitudes de Clientes</field>
+            <field name="name">3. Eliminar Solicitudes de Trabajo</field>
             <field name="comment">Permisos para eliminar solicitudes de trabajos</field>
             <field name="category_id" ref="module_category_solicitudes_clientes"/>
         </record>
 
     </data>
 
-  <!--   <data noupdate="0">
-         Creo una regla para que se vean los datos del proceso especifico y clientes del territorio
+    <data noupdate="0">
+   <!--    Creo una regla para que se vean los datos del proceso especifico y clientes del territorio
         <record id="solicitudes_multi_comp_rule" model="ir.rule">
          <field name="name">Regla de Solicitudes Multicompañia</field>
          <field name="model_id" ref="model_sicpro_app_solicitudes"/>
          <field name="global" eval="True"/>
          <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>-->
+
+        <!-- Acceso al campo proceso a que muestre las compañias -->
+        <record id="Regla_res_company_inversionista" model="ir.rule">
+            <field name="name">Regla inversionista para ver procesos</field>
+            <field name="model_id" ref="base.model_res_company"/>
+            <field eval="True" name="global"/>
+            <field name="groups" eval="[(6, 0, [ref('grupo_app_solicitudes_clientes')])]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
         </record>
 
-    </data> -->
+    </data>
 
 
 </odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="inversionista_user_form" model="ir.ui.view">
+    <field name="name">res.users.inversionista.form</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form" />
+    <field name="arch" type="xml">
+      <field name="sel_groups_1_8_9" position="before">
+        <label for="inversionista" class="oe_edit_only" string="Dirección de Correo" />
+        <field name="inversionista" string="Es inversionista"/>
+      </field>
+    </field>
+  </record>
+
+  <record id="inversionista_user_tree" model="ir.ui.view">
+    <field name="name">res.users.inversionista.tree</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_tree" />
+    <field name="arch" type="xml">
+      <field name="company_id" position="before">
+        <field name="inversionista" />
+      </field>
+    </field>
+  </record>
+</odoo>

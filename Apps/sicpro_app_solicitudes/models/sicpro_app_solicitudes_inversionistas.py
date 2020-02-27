@@ -15,19 +15,21 @@ class AppSolicitudesInversionistas(models.Model):
     _description = 'Aplicación de Solicitudes'
 
     name = fields.Char(required=True, string='Titulo', tracking=True, )
-    territorio = fields.Many2one(comodel_name="sicpro.nomenclador.territorios", string="Territorio",
-                                 required=True, tracking=True, )
-    provincia = fields.Many2one(comodel_name="sicpro.nomenclador.provincia", string="Provincia",
-                                required=True, default="", tracking=True, )
-    prioridad = fields.Selection(string='Prioridad', selection=[('1', '1'), ('2', '2'), ], index=True, tracking=True, )
+    territorio = fields.Many2one(comodel_name="sicpro.nomenclador.territorios", string="Territorio", required=True,
+                                 tracking=True, readonly=True,)
+    provincia = fields.Many2one(comodel_name="sicpro.nomenclador.provincia", string="Provincia",required=True,
+                                tracking=True, readonly=True,)
+    prioridad = fields.Selection(string='Prioridad', selection=[('0', 'Baja'), ('1', 'Media'), ('2', 'Alta'),
+                                                                ('3', 'Muy Alta'), ], index=True, tracking=True, )
     cliente = fields.Many2one(comodel_name="sicpro.app.clientes", string="Clientes", required=True,
                               domain="[('tipo_registro', '=', 'persona')]", )
     pep = fields.Char(string="Pep", required=True, size=10, tracking=True, )
-    proceso = fields.Char(string="proceso", required=True, tracking=True, )
+    proceso = fields.Many2one(comodel_name="res.company", string="Proceso", required=True, tracking=True,
+                              domain=[('company_registry', '=', 'Ejecutor')], )
 
     # obligo a que salga las especialidades del procesos especifico
     especialidad = fields.Many2one(comodel_name="sicpro.nomenclador.especialidad", string="Especialidad",
-                                   required=True, tracking=True, domain="[('company_id', '=', company_id)]")
+                                   required=True, tracking=True, )
 
     procede = fields.Char(string="procede", required=True, tracking=True, )
     documentacion = fields.Char(string="Documentación", required=True, tracking=True, )
@@ -46,6 +48,9 @@ class AppSolicitudesInversionistas(models.Model):
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
     active = fields.Boolean(string="Activo", default=True, tracking=True, )
 
+
+
+
     # devuelve nuevos valores a provincia y territorio cuando el cliente ha cambiado
     def _onchange_clientes_values(self, cliente):
         if cliente:
@@ -54,6 +59,9 @@ class AppSolicitudesInversionistas(models.Model):
                     'territorio': valor.territorio,
                     }
         return {}
+
+
+
 
     # Al cambiar campo Cliente
     @api.onchange('cliente')
